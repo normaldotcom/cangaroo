@@ -14,6 +14,7 @@ CandleApiInterface::CandleApiInterface(CandleApiDriver *driver, candle_handle ha
     _settings.setBitrate(500000);
     _settings.setSamplePoint(0.875);
 
+    // Timings for FCLK = 48 MHz
     _timings
         // sample point: 50.0%
         << CandleApiTiming(48000000,   10000, 500, 300, 6, 8)
@@ -63,10 +64,56 @@ CandleApiInterface::CandleApiInterface(CandleApiDriver *driver, candle_handle ha
         << CandleApiTiming(48000000,  800000, 867,   4, 11, 2)
         << CandleApiTiming(48000000, 1000000, 875,   3, 12, 2);
 
-
+    // Timings for FCLK = 42 MHz
     _timings
         // sample point: 50.0%
-        << CandleApiTiming(16000000,   10000, 520, 64, 11, 12)
+        << CandleApiTiming(42000000,   10000, 500, 300,  5, 7)
+        << CandleApiTiming(42000000,   20000, 500, 150,  5, 7)
+        << CandleApiTiming(42000000,   50000, 500,  60,  5, 7)
+        << CandleApiTiming(42000000,   83333, 500,  63,  2, 4)
+        << CandleApiTiming(42000000,  100000, 500,  30,  5, 7)
+        << CandleApiTiming(42000000,  125000, 500,  21,  6, 8)
+        << CandleApiTiming(42000000,  250000, 500,  12,  5, 7)
+        << CandleApiTiming(42000000,  500000, 500,   6,  5, 7)
+        << CandleApiTiming(42000000, 1000000, 500,   3,  5, 7)
+
+        // sample point: 62.5%
+        << CandleApiTiming(42000000,   10000, 625, 280,  7, 6)
+        << CandleApiTiming(42000000,   20000, 625, 140,  7, 6)
+        << CandleApiTiming(42000000,   50000, 625,  56,  7, 6)
+        << CandleApiTiming(42000000,   83333, 625,  36,  7, 5)
+        << CandleApiTiming(42000000,  100000, 625,  28,  7, 6)
+        << CandleApiTiming(42000000,  125000, 625,  21,  8, 6)
+        << CandleApiTiming(42000000,  250000, 625,  12,  7, 5)
+        << CandleApiTiming(42000000,  500000, 625,   6,  7, 5)
+        << CandleApiTiming(42000000, 1000000, 625,   3,  7, 5)
+
+        // sample point: 75.0%
+        << CandleApiTiming(42000000,   10000, 750, 200, 14, 5)
+        << CandleApiTiming(42000000,   20000, 750, 100, 14, 5)
+        << CandleApiTiming(42000000,   50000, 750,  40, 14, 5)
+        << CandleApiTiming(42000000,   83333, 750,  24, 14, 5)
+        << CandleApiTiming(42000000,  100000, 750,  20, 14, 5)
+        << CandleApiTiming(42000000,  125000, 750,  21, 10, 4)
+        << CandleApiTiming(42000000,  250000, 750,  12,  9, 3)
+        << CandleApiTiming(42000000,  500000, 750,   6,  9, 3)
+        << CandleApiTiming(42000000, 1000000, 750,   3,  9, 3)
+
+        // sample point: 87.5%
+        << CandleApiTiming(42000000,   10000, 875, 280, 11, 2)
+        << CandleApiTiming(42000000,   20000, 875, 140, 11, 2)
+        << CandleApiTiming(42000000,   50000, 875,  56, 11, 2)
+        << CandleApiTiming(42000000,   83333, 875,  36, 10, 2)
+        << CandleApiTiming(42000000,  100000, 875,  28, 11, 2)
+        << CandleApiTiming(42000000,  125000, 875,  21, 12, 2)
+        << CandleApiTiming(42000000,  250000, 875,  12, 10, 2)
+        << CandleApiTiming(42000000,  500000, 875,   6, 10, 2)
+        << CandleApiTiming(42000000, 1000000, 875,   3, 10, 2);
+
+    // Timings for FCLK = 16 MHz
+    _timings
+        // sample point: 50.0%
+        << CandleApiTiming(16000000,   10000, 520,100,  6,  8)
         << CandleApiTiming(16000000,   20000, 500, 50,  6,  8)
         << CandleApiTiming(16000000,   50000, 500, 20,  6,  8)
         << CandleApiTiming(16000000,   83333, 500, 12,  6,  8)
@@ -74,11 +121,11 @@ CandleApiInterface::CandleApiInterface(CandleApiDriver *driver, candle_handle ha
         << CandleApiTiming(16000000,  125000, 500,  8,  6,  8)
         << CandleApiTiming(16000000,  250000, 500,  4,  6,  8)
         << CandleApiTiming(16000000,  500000, 500,  2,  6,  8)
-        << CandleApiTiming(16000000,  800000, 500,  1,  8, 10)
+        << CandleApiTiming(16000000,  800000, 500,  2,  3,  5)
         << CandleApiTiming(16000000, 1000000, 500,  1,  6,  8)
 
         // sample point: 62.5%
-        << CandleApiTiming(16000000,   10000, 625, 64, 14,  9)
+        << CandleApiTiming(16000000,   10000, 625,100,  8,  6)
         << CandleApiTiming(16000000,   20000, 625, 50,  8,  6)
         << CandleApiTiming(16000000,   50000, 625, 20,  8,  6)
         << CandleApiTiming(16000000,   83333, 625, 12,  8,  6)
